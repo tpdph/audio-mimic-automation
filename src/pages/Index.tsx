@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AudioRecorder from '@/components/AudioRecorder';
 import VoiceCloner from '@/components/VoiceCloner';
+import VoiceCall from '@/components/VoiceCall';
 import { Card } from '@/components/ui/card';
 
 const Index = () => {
@@ -35,6 +36,11 @@ const Index = () => {
               audioBlob={audioBlob}
               onCloneComplete={handleCloneComplete}
             />
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-xl font-medium">Voice Call</h2>
+            <VoiceCall />
           </section>
 
           {clonedAudioUrl && (
