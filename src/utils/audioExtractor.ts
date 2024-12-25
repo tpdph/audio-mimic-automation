@@ -1,6 +1,5 @@
 import { FFmpeg } from '@ffmpeg/ffmpeg';
 import { fetchFile } from '@ffmpeg/util';
-import ytdl from 'ytdl-core';
 
 export async function extractAudioFromVideo(file: File): Promise<Blob> {
   console.log('Starting audio extraction from video file');
@@ -19,13 +18,15 @@ export async function extractAudioFromVideo(file: File): Promise<Blob> {
 export async function extractAudioFromYouTube(url: string): Promise<Blob> {
   console.log('Starting audio extraction from YouTube URL:', url);
   
+  // Use a proxy service or backend API that can handle YouTube downloads
+  const proxyUrl = `https://youtube-dl-proxy.herokuapp.com/download?url=${encodeURIComponent(url)}`;
+  
   try {
-    const videoInfo = await ytdl.getInfo(url);
-    const audioFormat = ytdl.chooseFormat(videoInfo.formats, { quality: 'highestaudio' });
-    
-    const response = await fetch(audioFormat.url);
-    const audioBlob = await response.blob();
-    return audioBlob;
+    const response = await fetch(proxyUrl);
+    if (!response.ok) {
+      throw new Error('Failed to fetch audio from YouTube');
+    }
+    return await response.blob();
   } catch (error) {
     console.error('Error extracting audio from YouTube:', error);
     throw new Error('Failed to extract audio from YouTube URL');

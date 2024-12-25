@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react';
+import { Mic, Phone, PhoneOff } from 'lucide-react';
 import { toast } from 'sonner';
 
 const VoiceCall = () => {
@@ -22,9 +22,7 @@ const VoiceCall = () => {
       await navigator.mediaDevices.getUserMedia({ audio: true });
       await conversation.startSession({
         agentId: "LAPzJ3YjC5oh2WdZVSD4",
-        headers: {
-          'xi-api-key': apiKey
-        }
+        authorization: apiKey // Changed from headers to authorization
       });
       setIsCallActive(true);
       toast.success("Call connected with Natalia");
