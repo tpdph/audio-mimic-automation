@@ -52,6 +52,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        blue: {
+          500: '#3B82F6',
+          600: '#2563EB',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -81,6 +85,9 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         ripple: "ripple 0.6s linear",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },
