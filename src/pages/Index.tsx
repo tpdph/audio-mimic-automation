@@ -18,10 +18,10 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-radial from-gray-50 to-gray-100 p-4">
       <div className="w-full max-w-4xl space-y-8">
         <header className="flex justify-between items-center w-full">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">E{h0</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">E{'{'}<span className="text-blue-600">h0</span>{'}'}</h1>
           <a
             href="https://github.com"
             target="_blank"
