@@ -18,15 +18,27 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-radial from-gray-50 to-gray-100 p-4">
-      <div className="w-full max-w-4xl space-y-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-radial from-gray-50 to-gray-100 p-4 relative overflow-hidden">
+      {/* Animated Waves Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="wave wave1"></div>
+        <div className="wave wave2"></div>
+        <div className="wave wave3"></div>
+      </div>
+
+      <div className="w-full max-w-4xl space-y-8 relative z-10">
         <header className="flex justify-between items-center w-full">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">E{'{'}<span className="text-blue-600">h0</span>{'}'}</h1>
+          <div className="relative">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+              E{'{'}<span className="text-blue-600">h0</span>{'}'}
+            </h1>
+            <div className="voice-emanation"></div>
+          </div>
           <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md transition-shadow"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 shadow-sm hover:shadow-md transition-shadow"
           >
             <Github className="w-5 h-5" />
             <span>GitHub Repo</span>
@@ -36,10 +48,10 @@ const Index = () => {
         <Card className="w-full p-8 space-y-8 bg-white/80 backdrop-blur-sm border-0 shadow-xl">
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Turn your voice into magic
+              Create the most realistic speech with our AI audio platform
             </h2>
             <p className="text-gray-600 text-lg">
-              Record, clone, and automate your voice with AI
+              Pioneering research in Text to Speech, AI Voice Generator, and more
             </p>
           </div>
 
