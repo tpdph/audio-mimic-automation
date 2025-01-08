@@ -23,6 +23,38 @@
   }
 }
 
+/* Recording/Playing Orb Animation */
+.orb-animation {
+  @apply absolute w-24 h-24 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500;
+  animation: orb-float 3s ease-in-out infinite;
+}
+
+.orb-animation::before {
+  content: '';
+  @apply absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/50 to-indigo-500/50 blur-xl;
+  animation: orb-glow 3s ease-in-out infinite;
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes orb-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
 .recording-pulse {
   @apply relative;
 }
@@ -62,36 +94,5 @@
   100% {
     transform: scale(0.8);
     @apply bg-blue-500;
-  }
-}
-
-.orb-animation {
-  @apply relative w-24 h-24 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500;
-  animation: orb-float 3s ease-in-out infinite;
-}
-
-.orb-animation::before {
-  content: '';
-  @apply absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/50 to-indigo-500/50 blur-xl;
-  animation: orb-glow 3s ease-in-out infinite;
-}
-
-@keyframes orb-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes orb-glow {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
   }
 }

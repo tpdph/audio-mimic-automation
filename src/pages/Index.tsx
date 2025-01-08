@@ -19,11 +19,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-radial from-gray-50 to-gray-100 p-4 relative overflow-hidden">
-      {/* Animated Waves Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="wave wave1"></div>
-        <div className="wave wave2"></div>
-        <div className="wave wave3"></div>
+      {/* Single Wave Animation */}
+      <div className="absolute bottom-0 left-0 w-full">
+        <div className="wave"></div>
       </div>
 
       <div className="w-full max-w-4xl space-y-8 relative z-10">
