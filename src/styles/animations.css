@@ -1,0 +1,97 @@
+/* Voice Emanation Animation */
+.voice-emanation {
+  @apply absolute -right-4 top-1/2 transform -translate-y-1/2;
+  width: 50px;
+  height: 50px;
+}
+
+.voice-emanation::before {
+  content: '';
+  @apply absolute w-full h-full rounded-full;
+  background: radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(59,130,246,0) 70%);
+  animation: voice-pulse 2s ease-out infinite;
+}
+
+@keyframes voice-pulse {
+  0% {
+    transform: scale(0.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.recording-pulse {
+  @apply relative;
+}
+
+.recording-pulse::before {
+  content: '';
+  @apply absolute inset-0 rounded-full;
+  animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.recording-pulse::after {
+  content: '';
+  @apply absolute inset-0 rounded-full;
+  animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+    @apply opacity-0 bg-blue-500;
+  }
+  80%, 100% {
+    transform: scale(3);
+    @apply opacity-0 bg-blue-500;
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.8);
+    @apply bg-blue-500;
+  }
+  50% {
+    transform: scale(1);
+    @apply bg-blue-600;
+  }
+  100% {
+    transform: scale(0.8);
+    @apply bg-blue-500;
+  }
+}
+
+.orb-animation {
+  @apply relative w-24 h-24 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500;
+  animation: orb-float 3s ease-in-out infinite;
+}
+
+.orb-animation::before {
+  content: '';
+  @apply absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/50 to-indigo-500/50 blur-xl;
+  animation: orb-glow 3s ease-in-out infinite;
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes orb-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
